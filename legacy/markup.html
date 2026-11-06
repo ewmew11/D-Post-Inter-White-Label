@@ -1,0 +1,393 @@
+<div class="shell">
+  <div class="noticebar thp-disc">ตัวอย่างระบบ white-label · จัดทำโดย FastShip (CloudCommerce) เพื่อเสนอไปรษณีย์ไทย · ไม่ใช่ระบบทางการของ ปณท · ราคา สาขา และเลขติดตามทั้งหมดเป็นข้อมูลจำลอง</div>
+
+  <header class="appbar">
+    <div class="logo">
+      <i class="thp-mark" role="img" aria-label="ไปรษณีย์ไทย Thailand Post"></i><span class="thp-prod"><span class="nm"><b>D-Post</b> <span>Inter</span></span><small>ไปรษณีย์ไทย · บริการระหว่างประเทศ</small></span>
+    </div>
+    <div class="appbar-spacer"></div>
+    <div class="modesw" role="group" aria-label="เลือกมุมมอง">
+      <button type="button" class="on" data-mode="user" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>ผู้ใช้บริการ</button>
+      <button type="button" data-mode="bo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Back-office</button>
+      <button type="button" data-mode="dash" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Dashboard</button>
+    </div>
+    <nav class="appbar-tabs"><button type="button" class="apptab-j" data-journey="parcel">พัสดุทั่วไป</button><button type="button" class="apptab-j" data-journey="freight">Freight</button><button type="button" class="apptab-j" data-journey="aqua">สัตว์น้ำ</button><button type="button" class="apptab-j" data-journey="buddha">พระพุทธรูป</button><button type="button" class="apptab-j" data-journey="plant">ต้นไม้</button><button type="button" class="apptab-j" data-journey="commerce">ร้านค้าออนไลน์</button><span class="tsep" aria-hidden="true"></span><button type="button" class="apptab-j" data-journey="mine">Dashboard</button>
+      <button class="apptab active" data-view="ship">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22.08V12"/></svg>
+        สร้างรายการส่ง
+      </button>
+      <button class="apptab" data-view="track">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        ติดตามพัสดุ
+      </button>
+    </nav>
+  </header>
+  <div class="anb" id="anb" role="region" aria-label="ประกาศ" hidden><div class="anb-in"><span class="anb-tag">ประกาศ</span><button type="button" class="anb-link" id="anbTxt"></button><button type="button" class="anb-x" id="anbX" aria-label="ปิดประกาศ">✕</button></div></div>
+
+  <main>
+
+    <!-- ================= SHIP VIEW ================= -->
+    <section class="view active" id="view-ship">
+      <div class="picker journey" id="j-picker">
+        <div class="lp">
+          <div class="lp-top">
+            <div><h1>ส่งของไปต่างประเทศ</h1><p>เช็คราคาและภาษีปลายทางก่อนส่ง ชำระเงินออนไลน์หรือที่ที่ทำการไปรษณีย์ ติดตามพัสดุได้จนถึงมือผู้รับ</p></div>
+            <form class="lp-track" id="lpTrack" role="search"><label for="lpTrackIn">ติดตามพัสดุ</label><div><input id="lpTrackIn" placeholder="EX2130658571NL" autocomplete="off" spellcheck="false"><button type="submit">ติดตาม</button></div></form>
+          </div>
+          <div class="lp-a">
+            <button class="lp-card lp-main" data-journey="parcel" type="button" style="--tint:var(--accent)">
+              <span style="display:flex;flex-direction:column;gap:10px;min-width:0">
+                <span class="lp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></svg></span>
+                <span class="lp-t">ส่งพัสดุไปต่างประเทศ</span>
+                <span class="lp-d">เลือกประเทศ บอกว่าในกล่องมีอะไร แล้วเทียบราคาทุกบริการพร้อมภาษีปลายทาง เลือกจ่ายครั้งเดียวรวมภาษี ผู้รับไม่ต้องจ่ายเพิ่ม</span>
+                <ol class="lp-steps"><li>ปลายทาง</li><li>ของในกล่อง</li><li>เลือกบริการ</li><li>ชำระเงิน</li></ol>
+                <span class="lp-go">เริ่มส่งพัสดุ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </span>
+              <span class="lp-q" aria-hidden="true"><span>ตัวอย่างราคา · <b>1 กก. ไปสหรัฐอเมริกา</b></span>
+                <span class="lp-qr best"><span>ePacket<small>ถูกสุด · 7–15 วัน</small></span><b>590 ฿</b></span>
+                <span class="lp-qr"><span>EMS World<small>4–8 วัน</small></span><b>880 ฿</b></span>
+                <span class="lp-qr"><span>Express All-in<small>4–6 วัน · รวมภาษีแล้ว</small></span><b>1,130 ฿</b></span>
+                <em>ราคาจริงคิดจากน้ำหนักและขนาดตอนชั่ง</em></span>
+            </button>
+            <button class="lp-card" data-journey="commerce" type="button" style="--tint:var(--violet)">
+              <span class="lp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3"/><path d="M5 12v8h14v-8M10 20v-5h4v5"/></svg></span>
+              <span class="lp-t">เชื่อมต่อร้านค้าออนไลน์</span>
+              <span class="lp-d">ดึงออเดอร์จากร้านเข้ามาอัตโนมัติ สร้างลาเบลทีละหลายออเดอร์ แล้วส่งเลขติดตามกลับไปที่ร้าน</span>
+              <span class="lp-plat"><span>Shopify</span><span>WooCommerce</span><span>Etsy</span><span>eBay</span><span>Excel</span></span>
+              <span class="lp-go">เชื่อมต่อร้าน <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </button>
+          </div>
+          <div class="lp-b">
+            <button class="lp-card" data-journey="freight" type="button" style="--tint:var(--airmail-blue, var(--airmail))"><span class="lp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="11" width="8" height="7" rx="1"/><rect x="13" y="11" width="8" height="7" rx="1"/><rect x="8" y="4" width="8" height="7" rx="1"/><path d="M2 21h20"/></svg></span><div><span class="lp-t">ส่งพัสดุขนาดใหญ่ไปต่างประเทศ</span><span class="lp-s">D-Post Freight</span><span class="lp-d">ของหนัก 20 กก. ขึ้นไปหรือหลายกล่อง นัดรถเข้ารับครั้งเดียว</span></div></button>
+            <button class="lp-card" data-journey="fba" type="button" style="--tint:var(--accent)"><span class="lp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M3 10 12 4l9 6v10H3z"/><path d="M8 20v-6h8v6"/><path d="M9 9c2 1.2 4 1.2 6 0"/></svg></span><div><span class="lp-t">ส่งเข้าคลัง Amazon FBA</span><span class="lp-s">สหรัฐอเมริกา · แคนาดา</span><span class="lp-d">เลือกคลัง ใส่ FBA Shipment ID รายกล่อง คิดราคาหลายกล่องทันที</span></div></button>
+            <button class="lp-card" data-journey="va" type="button" style="--tint:var(--airmail)"><span class="lp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 4 6 4 9s-1 6-4 9c-3-3-4-6-4-9s1-6 4-9z"/></svg></span><div><span class="lp-t">รับของจากต่างประเทศ</span><span class="lp-s">Virtual Address · สหรัฐฯ ญี่ปุ่น จีน</span><span class="lp-d">ได้ที่อยู่คลังต่างประเทศไว้สั่งของออนไลน์ แล้วส่งต่อเข้าไทย</span></div></button>
+          </div>
+          <div class="lp-c"><h2>บริการเฉพาะทาง</h2><p>สินค้าที่ต้องมีใบอนุญาต ระบบเตรียมเอกสารและยื่นกับหน่วยงานให้</p>
+            <div class="lp-c-row">
+              <button class="lp-mini" data-journey="aqua" type="button" style="--tint:var(--aqua)"><span class="lp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2.5-4 6.5-5.5 10.5-4.3 2.3.7 4 2.3 4.8 4.3-.8 2-2.5 3.6-4.8 4.3C9.5 17.5 5.5 16 3 12z"/><path d="M18.3 12 22 9v6z"/><circle cx="8" cy="11.5" r=".9" fill="currentColor"/></svg></span><span><b>ส่งสัตว์น้ำสวยงามไปต่างประเทศ</b><small>ร่วมกับกรมประมง</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+              <button class="lp-mini" data-journey="buddha" type="button" style="--tint:var(--gold)"><span class="lp-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="8" r="3.4"/><path d="M11.5 14c1-1.6 2.6-2.4 4.5-2.4s3.5.8 4.5 2.4l1.5 6H10z"/><path d="M7 25c2-3 5.5-4.5 9-4.5s7 1.5 9 4.5z"/><path d="M5 28h22"/></svg></span><span><b>ส่งพระพุทธรูป &amp; วัตถุมงคลไปต่างประเทศ</b><small>ใบอนุญาตกรมศิลปากร</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+              <button class="lp-mini" data-journey="plant" type="button" style="--tint:var(--leaf)"><span class="lp-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 28V14"/><path d="M16 17c-6 0-9-4-9-9 5 0 9 3 9 9z"/><path d="M16 14c0-5 3-8 9-8 0 5-3 8-9 8z"/><path d="M9 28h14l-1.5-5h-11z"/></svg></span><span><b>ส่งต้นไม้ &amp; พืชไปต่างประเทศ</b><small>ใบรับรองกรมวิชาการเกษตร</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+            </div></div>
+        </div>
+      </div>
+      <div class="journey" id="j-mine" hidden></div>
+      <div class="journey fl" id="j-parcel" hidden>
+      <div class="jhead">
+        <button class="jback" data-journey="picker" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          ประเภทการส่ง
+        </button>
+        <div class="jtitle"><i style="background:var(--accent)"></i>ส่งพัสดุไปต่างประเทศ</div>
+        <div class="jswitch" role="tablist" aria-label="สลับประเภทการส่ง"><button class="jsw active" data-journey="parcel">พัสดุทั่วไป</button><button class="jsw" data-journey="freight">Freight</button><button class="jsw" data-journey="aqua">สัตว์น้ำ</button><button class="jsw" data-journey="buddha">พระพุทธรูป</button><button class="jsw" data-journey="plant">ต้นไม้</button><button class="jsw" data-journey="commerce">ร้านค้าออนไลน์</button></div>
+      </div>
+        <div class="fl-top">
+          <div class="fl-wm"><b><i class="thp-mark sm" aria-hidden="true"></i>D-Post <i>Inter</i></b><span>ส่งของไปต่างประเทศจากไปรษณีย์</span></div>
+          <div class="fl-acct">
+            <span class="fl-branch fl-hide-sm">ปณ. ปากเกร็ด</span>
+            <span class="fl-muted fl-hide-sm" id="flWho"></span>
+            <span class="fl-lang" role="group" aria-label="ภาษา"><button type="button" class="on" aria-pressed="true">ไทย</button><button type="button" aria-pressed="false" disabled title="POC แสดงเฉพาะภาษาไทย">EN</button></span>
+            <button type="button" class="fl-link" id="flLogout">ออกจากระบบ</button>
+          </div>
+        </div>
+        <div id="flRoot"></div>
+      </div>
+
+      <div class="journey fl" id="j-fba" hidden>
+      <div class="jhead"><button class="jback" data-journey="picker" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>ประเภทการส่ง</button><div class="jtitle"><i style="background:var(--accent)"></i>ส่งเข้าคลัง Amazon FBA</div></div>
+        <div id="fbaRoot"></div>
+      </div>
+
+      <div class="journey fl" id="j-va" hidden>
+      <div class="jhead"><button class="jback" data-journey="picker" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>ประเภทการส่ง</button><div class="jtitle"><i style="background:var(--accent)"></i>รับของจากต่างประเทศ · Virtual Address</div></div>
+        <div id="vaRoot"></div>
+      </div>
+
+      <div class="journey" id="j-freight" hidden>
+      <div class="jhead">
+        <button class="jback" data-journey="picker" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          ประเภทการส่ง
+        </button>
+        <div class="jtitle"><i style="background:var(--airmail-blue)"></i>ส่งพัสดุขนาดใหญ่ไปต่างประเทศ · D-Post Freight</div>
+        <div class="jswitch" role="tablist" aria-label="สลับประเภทการส่ง"><button class="jsw" data-journey="parcel">พัสดุทั่วไป</button><button class="jsw active" data-journey="freight">Freight</button><button class="jsw" data-journey="aqua">สัตว์น้ำ</button><button class="jsw" data-journey="buddha">พระพุทธรูป</button><button class="jsw" data-journey="plant">ต้นไม้</button><button class="jsw" data-journey="commerce">ร้านค้าออนไลน์</button></div>
+      </div>
+        <div class="ff fl" id="ffRoot"></div>
+      </div>
+
+      <div class="fl-bar" id="flBar" aria-hidden="true"></div>
+      <div class="fl-dlg" id="flDlg" hidden><div class="box" role="dialog" aria-modal="true" aria-labelledby="flDlgT" id="flDlgBox"></div></div>
+      <div class="ff-toast" id="ffToast" role="status" aria-live="polite" hidden></div>
+      <div class="journey aq" id="j-aqua" hidden>
+      <div class="jhead">
+        <button class="jback" data-journey="picker" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          ประเภทการส่ง
+        </button>
+        <div class="jtitle"><i style="background:var(--aqua)"></i>ส่งสัตว์น้ำสวยงามไปต่างประเทศ</div>
+        <div class="jswitch" role="tablist" aria-label="สลับประเภทการส่ง"><button class="jsw" data-journey="parcel">พัสดุทั่วไป</button><button class="jsw" data-journey="freight">Freight</button><button class="jsw active" data-journey="aqua">สัตว์น้ำ</button><button class="jsw" data-journey="buddha">พระพุทธรูป</button><button class="jsw" data-journey="plant">ต้นไม้</button><button class="jsw" data-journey="commerce">ร้านค้าออนไลน์</button></div>
+      </div>
+      <div id="aqRoot"></div>
+      </div>
+      <div class="journey aq bud" id="j-buddha" hidden>
+      <div class="jhead">
+        <button class="jback" data-journey="picker" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          ประเภทการส่ง
+        </button>
+        <div class="jtitle"><i style="background:var(--gold)"></i>ส่งพระพุทธรูป &amp; วัตถุมงคลไปต่างประเทศ</div>
+        <div class="jswitch" role="tablist" aria-label="สลับประเภทการส่ง"><button class="jsw" data-journey="parcel">พัสดุทั่วไป</button><button class="jsw" data-journey="freight">Freight</button><button class="jsw" data-journey="aqua">สัตว์น้ำ</button><button class="jsw active" data-journey="buddha">พระพุทธรูป</button><button class="jsw" data-journey="plant">ต้นไม้</button><button class="jsw" data-journey="commerce">ร้านค้าออนไลน์</button></div>
+      </div>
+      <div id="buRoot"></div>
+      </div>
+      <div class="journey aq pl" id="j-plant" hidden>
+      <div class="jhead">
+        <button class="jback" data-journey="picker" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          ประเภทการส่ง
+        </button>
+        <div class="jtitle"><i style="background:var(--leaf)"></i>ส่งต้นไม้ &amp; พืชไปต่างประเทศ</div>
+        <div class="jswitch" role="tablist" aria-label="สลับประเภทการส่ง"><button class="jsw" data-journey="parcel">พัสดุทั่วไป</button><button class="jsw" data-journey="freight">Freight</button><button class="jsw" data-journey="aqua">สัตว์น้ำ</button><button class="jsw" data-journey="buddha">พระพุทธรูป</button><button class="jsw active" data-journey="plant">ต้นไม้</button><button class="jsw" data-journey="commerce">ร้านค้าออนไลน์</button></div>
+      </div>
+      <div id="plRoot"></div>
+      </div>
+      <div class="journey" id="j-commerce" hidden>
+      <div class="jhead">
+        <button class="jback" data-journey="picker" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          ประเภทการส่ง
+        </button>
+        <div class="jtitle"><i style="background:var(--violet)"></i>เชื่อมต่อร้านค้าออนไลน์ · Shopify / WooCommerce</div>
+        <div class="jswitch" role="tablist" aria-label="สลับประเภทการส่ง"><button class="jsw" data-journey="parcel">พัสดุทั่วไป</button><button class="jsw" data-journey="freight">Freight</button><button class="jsw" data-journey="aqua">สัตว์น้ำ</button><button class="jsw" data-journey="buddha">พระพุทธรูป</button><button class="jsw" data-journey="plant">ต้นไม้</button><button class="jsw active" data-journey="commerce">ร้านค้าออนไลน์</button></div>
+      </div>
+        <ol class="cflow" id="cFlow" aria-label="ขั้นตอน Order-to-Shipment ตาม Test Case">
+          <li class="now">เชื่อมต่อร้าน</li><li>นำเข้าออเดอร์</li><li>ตรวจสอบ &amp; เลือกบริการ</li><li>ชำระเงิน &amp; Label</li><li>ส่ง Tracking กลับร้าน</li>
+        </ol>
+        <div class="cx">
+          <aside class="cx-side">
+            <div class="cx-store"><span class="cx-sico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 2 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3"/><path d="M5 12v8h14v-8"/></svg></span><b id="cxStoreName">D-Post Seller</b><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></div>
+            <nav class="cx-nav" aria-label="เมนู">
+              <button type="button" data-cx="orders"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Orders <em id="cxBadge">0</em></button>
+              <button type="button" data-cx="channels" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>Channels</button>
+            </nav>
+            <div class="cx-pow">Powered by <b>D-Post Connect</b> · D-Post Inter</div>
+          </aside>
+
+          <main class="cx-main">
+            <!-- Sale Channels -->
+            <section id="cxChannels">
+              <div class="cx-title"><h2>Sale Channels <span class="tcid">ขร. eCommerce Integration — 1. Platform Connection / Authentication</span></h2><p>จัดการช่องทางการขายที่เชื่อมต่อกับ D-Post Inter</p></div>
+              <div class="cx-stats">
+                <div><span>Total Channels</span><b><i style="color:#2f6fe4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9l1.5-5h13L20 9v11H4z"/><path d="M9 20v-6h6v6"/></svg></i><em id="cxStTotal">0</em></b></div>
+                <div><span>Connected</span><b><i style="color:#23a455"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></i><em id="cxStConn">0</em></b></div>
+                <div><span>Active</span><b><i style="color:#2f6fe4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></i><em id="cxStAct">0</em></b></div>
+                <div><span>Total Products</span><b><i style="color:#7b4fd6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9l1.5-5h13L20 9v11H4z"/></svg></i><em id="cxStProd">0</em></b></div>
+              </div>
+              <div class="cx-sech"><h3>Marketplace Channel <span class="tcid">ขร. POC: Shopify + WooCommerce, Platform อื่นใช้ Mock API</span></h3><button type="button" class="cx-help" aria-label="วิธีเชื่อมต่อ">?</button><button type="button" class="cx-black" id="cxConnectBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Connect New Channel</button></div>
+              <div class="cx-card"><div class="tablewrap"><table class="cx-table" id="cxChTable"></table></div></div>
+            </section>
+
+            <!-- Order Feed -->
+            <section id="cxOrders" hidden>
+              <div class="cx-banner">
+                <div class="cx-bl"><span class="cx-bk">Platform exclusive</span><b>−20%</b><span>ค่าส่งต่างประเทศ เฉพาะ Shipment ที่สร้างผ่าน Shopify / WooCommerce<br><em>1–30 พ.ย. 2569 · ตรวจสิทธิ์จากช่วงเลข Tracking ที่จัดสรรให้ Platform</em></span></div>
+                <div style="display:grid;gap:8px;justify-items:end;position:relative;z-index:1"><span class="tcid" style="background:rgba(0,0,0,.22);color:#fff">ขร. Platform-Specific Campaign via Tracking Number</span><label class="c-switch cx-bsw"><input type="checkbox" id="cxCamp" checked><span></span>จำลองว่าอยู่ในช่วงแคมเปญ</label></div>
+              </div>
+              <div class="cx-feedh">
+                <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Order - Feed <span class="tcid">ขร. 2. Import Order</span></h2>
+                <div class="cx-feedact">
+                  <button type="button" class="cx-outline" id="cxPull"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 11a8 8 0 0 0-14-5l-2 2M4 13a8 8 0 0 0 14 5l2-2M4 4v4h4M20 20v-4h-4"/></svg>ดึงออเดอร์ใหม่</button>
+                  <button type="button" class="cx-dark" data-journey="parcel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Create Manual Order</button>
+                </div>
+              </div>
+              <div class="cx-card">
+                <div class="cx-filter">
+                  <div class="cx-pills" id="cxPills"><button type="button" data-f="all">All</button><button type="button" data-f="new" class="on">New order</button><button type="button" data-f="done">Created Shipment</button></div>
+                  <label class="cx-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><input id="cxSearch" placeholder="Search by Order ID or Tracking" aria-label="ค้นหา"></label>
+                </div>
+                <div class="tablewrap"><table class="cx-table cx-orders" id="cxOrdTable"></table></div>
+                <div class="cx-manifest" id="cxManifestBar" hidden><span><span id="cxManifestInfo"></span> <span class="tcid add">เสนอเพิ่ม · ต่อยอด บร. Bulk Print</span></span><button type="button" class="cx-black" id="cxManifest">ใบฝากส่งรวม (Manifest)</button></div>
+              </div>
+            </section>
+
+            <!-- Create shipment -->
+            <section id="cxCreate" hidden></section>
+
+            <!-- Shipment created -->
+            <section id="cxDone" hidden></section>
+          </main>
+        </div>
+
+        <!-- hosted connect page (D-Post Connect-style) -->
+        <div class="cx-hosted" id="cxHosted" hidden>
+          <div class="cx-hback" data-hclose></div>
+          <div class="cx-hbox" role="dialog" aria-modal="true" aria-label="เชื่อมต่อช่องทางการขาย">
+            <div class="cx-hhead"><button type="button" class="cx-hnav" id="cxHBack" aria-label="ย้อนกลับ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><span class="cx-hlogo">D-POST<b>INTER</b></span><button type="button" class="cx-hnav" data-hclose aria-label="ปิด">×</button></div>
+            <div class="cx-hbody" id="cxHBody"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TRACK VIEW (Track & Trace) ================= -->
+    <section class="view" id="view-track">
+      <div class="ft">
+        <div class="ft-top"><h1>ตรวจสอบสถานะพัสดุ</h1><p>กรุณากรอกข้อมูลพัสดุ เพื่อตรวจสอบสถานะ</p>
+          <div class="ft-search"><input id="trackInput" placeholder="Search..." value="EX2130658571NL" aria-label="หมายเลขติดตามพัสดุ" autocomplete="off"><button type="button" id="trackBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg>ค้นหา</button></div>
+          <span class="srcb real" style="margin-top:10px">ระบบพร้อมใช้ · Track & Trace</span>
+        </div>
+        <div class="ft-card" id="timelineBody"></div>
+      </div>
+    </section>
+
+    <!-- ================= DASHBOARD (BACK-OFFICE) VIEW ================= -->
+    <section class="view" id="view-admin">
+      <div class="ad">
+        <aside class="ad-side" aria-label="เมนู Dashboard">
+          <div class="ad-me"><i>สภ</i><div><b>สุภาพร มั่นคง</b><small>Supervisor · ปณ.หลักสี่ 10210</small></div></div>
+          <div id="adNav"></div>
+        </aside>
+        <div class="ad-mnav"><select id="adMnav" aria-label="เลือกหน้าใน Dashboard"></select></div>
+        <div class="ad-main"><div id="adPage"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= COVERAGE VIEW (holder; shown inside Dashboard) ================= -->
+    <section class="view" id="view-cov">
+      <div class="card" id="covCard">
+        <p class="covsum" id="covSum"></p>
+        <div class="covlegend">
+          <span><i class="dot" style="background:var(--good)"></i>สาธิตแล้วใน POC นี้</span>
+          <span><i class="dot" style="background:var(--warn)"></i>สาธิตบางส่วน (UI เท่านั้น ยังไม่เชื่อมจริง)</span>
+          <span><i class="dot" style="background:var(--ink-dim)"></i>ยังไม่ได้ทำ — เสนอเป็นเฟสถัดไป</span>
+        </div>
+        <div class="tablewrap">
+          <table class="cov" id="covTable"></table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="foot">D-Post Inter POC · จัดทำเพื่อสาธิตแนวคิดในการนำเสนอต่อ Thailand Post · ข้อมูลทั้งหมดเป็นข้อมูลจำลอง</div>
+</div>
+
+<div class="ad-dr" id="adDrawer" hidden>
+  <div class="bk" data-drx></div>
+  <div class="pn" role="dialog" aria-modal="true" aria-label="รายละเอียดพัสดุ">
+    <div class="ph"><div class="t"></div><button type="button" class="x" data-drx aria-label="ปิด"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="pb"></div>
+  </div>
+</div>
+<div class="ad-toast" id="adToast" role="status" aria-live="polite"></div>
+
+<div class="modal" id="bookModal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="bmTitle">
+    <button class="sheet-x" data-close aria-label="ปิด">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+
+    <div class="tk tk-top">
+      <div class="tk-band">
+        <svg class="tk-stamp" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="stampArc" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs>
+          <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="3"/>
+          <circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text font-size="10.5" font-weight="800" letter-spacing="2.4" fill="currentColor"><textPath href="#stampArc">D-POST INTER · BANGKOK · THAILAND ·</textPath></text>
+          <text x="60" y="57" text-anchor="middle" font-size="11" font-weight="800" fill="currentColor" id="bmStampDate">30 SEP</text>
+          <text x="60" y="72" text-anchor="middle" font-size="11" font-weight="800" fill="currentColor">2026</text>
+        </svg>
+        <div class="tk-headrow">
+          <svg class="tk-check" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22"/><path d="M13 22.5l6 6 12-13"/></svg>
+          <div>
+            <div class="tk-eyebrow" id="bmEyebrow">Booking confirmed</div>
+            <h3 class="tk-title" id="bmTitle">จองเรียบร้อยแล้ว</h3>
+            <div class="tk-sub" id="bmSub">ราคาล็อกไว้แล้ว เหลือแค่นำพัสดุไปหย่อนที่สาขา</div>
+          </div>
+        </div>
+        <div class="tk-steps" id="bmSteps"></div>
+      </div>
+      <div class="tk-body">
+        <dl class="tk-grid" id="bmGrid"></dl>
+        <div class="tk-pay">
+          <span><span id="bmPayLabel">ยอดชำระที่เคาน์เตอร์</span><em id="bmPayNote">ราคาล็อกไว้ตามที่จอง</em></span>
+          <b id="bmTotal">—</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="tk tk-stub">
+      <div class="stub-row">
+        <div class="qrbox" id="bmQrBox"><svg id="bmQr" viewBox="0 0 29 29" shape-rendering="crispEdges" aria-label="QR สำหรับสแกนที่เคาน์เตอร์"></svg></div>
+        <div style="min-width:0">
+          <div class="stub-label" id="bmTrackLabel">หมายเลขติดตาม</div>
+          <div class="trackrow">
+            <span class="trackno" id="bmTrack">—</span>
+            <button class="copybtn" id="bmCopy" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              <span>คัดลอก</span>
+            </button>
+            <span class="tk-flag" id="bmFlag" hidden></span>
+          </div>
+          <div class="stub-hint" id="bmHint"></div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="branchSelect" id="bmBranchLabel">สาขาที่จะนำไปหย่อน</label>
+        <select id="branchSelect"></select>
+      </div>
+      <div class="sync" id="bmSync"></div>
+      <div class="tk-tc" id="bmTc"></div>
+      <div class="sheet-actions">
+        <button class="btn btn-ghost" id="bmNew" type="button">สร้างรายการใหม่</button>
+        <button class="btn btn-primary" id="bmTrackBtn" type="button">ติดตามรายการนี้ →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pay" id="payModal" hidden>
+  <div class="pay-back"></div>
+  <div class="pay-box" role="dialog" aria-modal="true" aria-labelledby="payTitle">
+    <div class="pay-head">
+      <div><span class="pay-eyebrow">D-Post Inter · Payment</span><h3 id="payTitle">ชำระเงิน</h3><small id="payRef">—</small></div>
+      <button type="button" class="pay-x" id="payClose" aria-label="ปิด">×</button>
+    </div>
+    <ol class="pay-steps" id="paySteps"><li>เลือกช่องทาง</li><li>ชำระเงิน</li><li>ยืนยันผล</li><li>ใบเสร็จ</li></ol>
+    <div class="pay-body">
+      <aside class="pay-sum">
+        <div class="pay-sumh">สรุปยอด <span class="tcid">ขร. Payment &amp; Credit Term</span></div>
+        <div id="payLines"></div>
+        <div class="pay-total"><span>ยอดชำระ</span><b id="payTotal">—</b></div>
+        <div id="payDdp"></div>
+      </aside>
+      <section class="pay-main" id="payMain"></section>
+    </div>
+    <p class="pay-foot">หน้าชำระเงินจำลองเพื่อสาธิต flow: เลือกช่องทาง → Payment Initiation → Payment Confirmation → Receipt → Complete Shipment · ไม่มีการตัดเงินจริง</p>
+  </div>
+</div>
+
+<div class="dk" id="dk">
+  <button type="button" class="dk-btn" id="dkBtn" aria-expanded="false" aria-controls="dkPanel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>มุมมอง · <i id="dkCur"></i></button>
+  <div class="dk-panel" id="dkPanel" hidden>
+    <div class="dk-h">เปลี่ยนมุมมอง</div>
+    <div class="modesw dk-modes" role="group" aria-label="เลือกมุมมอง">
+      <button type="button" class="on" data-mode="user" aria-pressed="true">ผู้ใช้บริการ<small>สร้างรายการส่ง · ติดตามพัสดุ</small></button>
+      <button type="button" data-mode="ctr" aria-pressed="false">เคาน์เตอร์ D-Post Inter<small>รับฝาก · POS · Preload</small></button>
+      <button type="button" data-mode="bo" aria-pressed="false">Back-office<small>ลูกค้า · พัสดุ · ตั้งค่าราคา · การเงิน</small></button>
+      <button type="button" data-mode="dash" aria-pressed="false">Dashboard<small>ภาพรวม · กำไร · ลูกค้า & การตลาด</small></button>
+    </div>
+    <div class="dk-links"><button type="button" data-dk="cov">สถานะ Test Case 88 ข้อ</button><button type="button" data-dk="fcov">Focus coverage 6 หัวข้อ</button></div>
+    <p class="dk-note" id="dkNote"></p>
+  </div>
+</div>
+<div class="fy-hint" id="fyHint" aria-hidden="true"><b>สวัสดี!</b>ถามเรื่องค่าส่งหรือสถานะพัสดุได้เลย</div>
+<button type="button" class="fy-fab" id="fyFab" aria-expanded="false" aria-controls="fy" aria-label="เปิดแชท ผู้ช่วย D-Post"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg></button>
+<section class="fy" id="fy" role="dialog" aria-label="แชทกับ ผู้ช่วย D-Post" hidden>
+  <div class="fy-hd"><span class="fy-av"><svg viewBox="0 0 40 26" aria-hidden="true"><path d="M1 3h25l-5 8z" fill="#14215E"/><path d="M26 3h13L21 11z" fill="#E2231A"/><path d="M1 3l20 8 2 13z" fill="#9AA0A6"/><path d="M21 11l18-8-16 21z" fill="#C9CDD1"/></svg></span><b>ผู้ช่วย D-Post<small>ตอบทันที · ส่งต่อเจ้าหน้าที่ได้</small></b>
+    <button type="button" id="fyReset" aria-label="เริ่มบทสนทนาใหม่" title="เริ่มบทสนทนาใหม่"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+    <button type="button" id="fyClose" aria-label="ปิดแชท"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button></div>
+  <div class="fy-log" id="fyLog" aria-live="polite"></div>
+  <div class="fy-in"><textarea id="fyTx" rows="1" placeholder="พิมพ์คำถาม เช่น ส่งเสื้อ 1 กก. ไปอเมริกาเท่าไหร่" aria-label="ข้อความถึง ผู้ช่วย D-Post"></textarea><button type="button" id="fySend" aria-label="ส่งข้อความ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+</section>
+<div class="v11-dlg" id="v11Dlg" hidden><div class="v11-box" id="v11Box" role="dialog" aria-modal="true"></div></div>
