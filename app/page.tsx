@@ -1,18 +1,16 @@
-import { readFileSync } from "node:fs";
+import fs from "node:fs";
 import path from "node:path";
-import LegacyBoot from "@/components/LegacyBoot";
+import Script from "next/script";
 
-// The page is fully static: the markup is read once at build time.
-export const dynamic = "force-static";
-
-const markup = readFileSync(path.join(process.cwd(), "legacy", "markup.html"), "utf8");
+// The prototype UI is plain HTML driven by public/dpost-app.js (vanilla JS).
+// The markup is read at build time and rendered statically; the script then wires it up in the browser.
+const markup = fs.readFileSync(path.join(process.cwd(), "app", "markup.html"), "utf8");
 
 export default function Page() {
   return (
     <>
-      {/* display:contents keeps the prototype's elements laid out as direct children of <body>. */}
-      <div id="legacy-root" style={{ display: "contents" }} dangerouslySetInnerHTML={{ __html: markup }} />
-      <LegacyBoot />
+      <div id="dpost-root" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: markup }} />
+      <Script src="/dpost-app.js" strategy="afterInteractive" />
     </>
   );
 }

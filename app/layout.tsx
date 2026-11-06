@@ -1,31 +1,9 @@
 import type { Metadata, Viewport } from "next";
-
-// Self-hosted fonts (bundled from npm, no request to Google at build or run time).
-// Same families and weights the prototype loaded from Google Fonts.
-import "@fontsource/sarabun/thai-400.css";
-import "@fontsource/sarabun/thai-500.css";
-import "@fontsource/sarabun/thai-600.css";
-import "@fontsource/sarabun/thai-700.css";
-import "@fontsource/sarabun/latin-400.css";
-import "@fontsource/sarabun/latin-500.css";
-import "@fontsource/sarabun/latin-600.css";
-import "@fontsource/sarabun/latin-700.css";
-import "@fontsource/kanit/thai-500.css";
-import "@fontsource/kanit/thai-600.css";
-import "@fontsource/kanit/thai-700.css";
-import "@fontsource/kanit/latin-500.css";
-import "@fontsource/kanit/latin-600.css";
-import "@fontsource/kanit/latin-700.css";
-import "@fontsource/ibm-plex-mono/latin-500.css";
-import "@fontsource/ibm-plex-mono/latin-700.css";
-
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "D-Post Inter White-label",
-  description:
-    "ตัวอย่างระบบ white-label จัดทำโดย FastShip (CloudCommerce) เพื่อเสนอไปรษณีย์ไทย · ไม่ใช่ระบบทางการของ ปณท",
-  robots: { index: false, follow: false },
+  description: "ระบบตัวอย่าง white-label · จัดทำโดย FastShip (CloudCommerce) · ข้อมูลจำลอง",
 };
 
 export const viewport: Viewport = {
@@ -37,7 +15,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="th" suppressHydrationWarning>
-      {/* The prototype script writes data-mode / data-staff / classes on <body>. */}
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=Bai+Jamjuree:wght@500;600;700&family=IBM+Plex+Mono:wght@500;700&family=Sarabun:wght@400;500;600;700&display=swap" />
+      </head>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );
